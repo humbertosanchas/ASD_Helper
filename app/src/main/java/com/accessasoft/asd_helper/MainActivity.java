@@ -1,6 +1,7 @@
 package com.accessasoft.asd_helper;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -21,7 +22,8 @@ public class MainActivity extends Activity {
         btnTimerSetup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setContentView(R.layout.activity_timer_setup);
+                Intent timerSetupPage = new Intent(v.getContext(), Timer_Setup.class);
+                startActivityForResult(timerSetupPage,0);
             }
         });
 

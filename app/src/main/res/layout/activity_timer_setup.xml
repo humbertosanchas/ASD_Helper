@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:id="@+id/ddlTheme">
 
     <TextView
         android:layout_width="wrap_content"
@@ -98,14 +99,6 @@
         android:textSize="@dimen/inputLblTextSize"
         android:layout_marginTop="15dp" />
 
-    <ExpandableListView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/ddlThemes"
-        android:layout_alignTop="@+id/lblTheme"
-        android:layout_toRightOf="@+id/lblTheme"
-        android:layout_toEndOf="@+id/lblTheme" />
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -133,7 +126,6 @@
         android:text="@string/radOffText"
         android:id="@+id/radOff"
         android:layout_alignTop="@+id/lblSound"
-        android:layout_alignEnd="@+id/ddlThemes"
         android:layout_alignRight="@+id/npSeconds"
         android:layout_alignLeft="@+id/radNo" />
 
@@ -178,5 +170,13 @@
         android:layout_centerHorizontal="true"
         android:minWidth="200dp"
         android:minHeight="75dp" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner"
+        android:layout_alignTop="@+id/lblTheme"
+        android:layout_alignLeft="@+id/radOn"
+        android:layout_alignStart="@+id/radOn" />
 
 </RelativeLayout>
