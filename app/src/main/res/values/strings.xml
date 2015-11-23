@@ -9,4 +9,12 @@
     <string name="lblSeconds">S</string>
     <string name="lblMinutes">M</string>
     <string name="lblHours">H</string>
+    <string name="lblTheme">Select Theme :</string>
+    <string name="lblSoundText">Sound :</string>
+    <string name="radOnText">On</string>
+    <string name="radOffText">Off</string>
+    <string name="lblSleepableText">Let Device Sleep :</string>
+    <string name="radYesText">Yes</string>
+    <string name="radNoText">No</string>
+    <string name="btnStartText">Start</string>
 </resources>
