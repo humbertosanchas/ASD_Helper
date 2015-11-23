@@ -1,6 +1,12 @@
 <resources>
-    <string name="app_name">ASD_Helper</string>
-
-    <string name="hello_world">Hello world!</string>
+    <string name="app_name">ASD Helper</string>
     <string name="action_settings">Settings</string>
+    <string name="btnTimerText">Timers</string>
+    <string name="btnIncidentText">Incident Tracker</string>
+    <string name="btnHistoryText">History</string>
+    <string name="lblTimerHeading">Visual Timer Setup</string>
+    <string name="lblTimerLngth">Timer Length :</string>
+    <string name="lblSeconds">S</string>
+    <string name="lblMinutes">M</string>
+    <string name="lblHours">H</string>
 </resources>

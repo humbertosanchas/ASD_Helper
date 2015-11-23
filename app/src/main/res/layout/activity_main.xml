@@ -3,9 +3,35 @@
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity"
+    android:background="#ff000000">
 
-    <TextView android:text="@string/hello_world" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnTimer"
+        android:layout_marginTop="45dp"
+        android:longClickable="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:contentDescription="@string/btnTimerText"
+        android:src="@drawable/timer" />
 
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnIncident"
+        android:src="@drawable/incident"
+        android:layout_below="@+id/btnTimer"
+        android:layout_centerHorizontal="true"
+        android:contentDescription="@string/btnIncidentText" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnHistory"
+        android:src="@drawable/history"
+        android:layout_below="@+id/btnIncident"
+        android:layout_centerHorizontal="true"
+        android:contentDescription="@string/btnHistoryText" />
 </RelativeLayout>

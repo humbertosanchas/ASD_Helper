@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/lblTimerHeading"
+        android:id="@+id/lblTimerSetup"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:textSize="@dimen/headingTextSize"
+        android:textStyle="bold"
+        android:textAlignment="center" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/lblTimerLngth"
+        android:id="@+id/textView"
+        android:textSize="@dimen/inputLblTextSize"
+        android:layout_alignBottom="@+id/npHours"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="47dp" />
+
+    <NumberPicker
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/npHours"
+        android:layout_below="@+id/lblTimerSetup"
+        android:layout_toRightOf="@+id/textView"
+        android:layout_toEndOf="@+id/textView" />
+
+    <NumberPicker
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/npMinutes"
+        android:layout_below="@+id/lblTimerSetup"
+        android:layout_toRightOf="@+id/npHours"
+        android:layout_toEndOf="@+id/npHours" />
+
+    <NumberPicker
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/npSeconds"
+        android:layout_below="@+id/lblTimerSetup"
+        android:layout_toRightOf="@+id/npMinutes"
+        android:layout_toEndOf="@+id/npMinutes" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/lblH"
+        android:layout_below="@+id/npHours"
+        android:layout_centerHorizontal="true"
+        android:layout_alignRight="@+id/npHours"
+        android:text="@string/lblHours"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/lblMinutes"
+        android:id="@+id/lblM"
+        android:layout_alignEnd="@+id/npMinutes"
+        android:layout_below="@+id/npSeconds"
+        android:layout_toLeftOf="@+id/npSeconds"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/lblSeconds"
+        android:id="@+id/lblS"
+        android:layout_below="@+id/npSeconds"
+        android:layout_alignEnd="@id/npSeconds"
+        android:layout_toLeftOf="@+id/npSeconds"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp" />
+
+</RelativeLayout>
