@@ -5,19 +5,26 @@ import android.database.DataSetObserver;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.NumberPicker;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 // Created by pboyko1 on 11/23/2015.
 
-public class Timer_Setup extends Activity{
+public class Timer_Setup extends Activity implements AdapterView.OnItemSelectedListener{
 
-    String[] themes = {"Spaceship","Unicorn","Pirate ship", "Fairy"};
+    Spinner themeSpinner;
+    String soundValue;
+    String sleepValue;
 
 
     @Override
@@ -43,10 +50,40 @@ public class Timer_Setup extends Activity{
         npSeconds.setValue(0);
         npSeconds.setWrapSelectorWheel(false);
 
-        Spinner spinner = (Spinner) findViewById(R.id.ddlTheme);
-        ArrayAdapter<String> themeAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, themes);
-        themeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(themeAdapter);
+      RadioGroup radSound = (RadioGroup) findViewById(R.id.radGroupSound);
+      final RadioButton radSoundOn = (RadioButton)findViewById(R.id.radOn);
+      final RadioButton radSoundOff = (RadioButton)findViewById(R.id.radOff);
+      radSoundOn.setChecked(true);
+      RadioButton radSoundValue = (RadioButton) findViewById(radSound.getCheckedRadioButtonId());
+      soundValue = radSoundValue.getText().toString();
+
+      radSound.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+          @Override
+          public void onCheckedChanged(RadioGroup group, int checkedId) {
+
+              Toast.makeText(getBaseContext(),"Radio button selected " + soundValue, Toast.LENGTH_LONG).show();
+          }
+      });
+
+        RadioGroup radAllowSleep = (RadioGroup) findViewById(R.id.radGroupSleep);
+        final RadioButton radAllowSleepYes = (RadioButton) findViewById(R.id.radYes);
+        final RadioButton radAllowSleepNo = (RadioButton) findViewById(R.id.radNo);
+        radAllowSleepNo.setChecked(true);
+        RadioButton radSleepValue = (RadioButton) findViewById(radAllowSleep.getCheckedRadioButtonId());
+        sleepValue = radSleepValue.getText().toString();
+
+        radAllowSleep.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+
+                Toast.makeText(getBaseContext(),"Radio button selected " + sleepValue, Toast.LENGTH_LONG).show();
+            }
+        });
+
+       themeSpinner = (Spinner) findViewById(R.id.ddlTheme);
+       ArrayAdapter themeAdapter = ArrayAdapter.createFromResource(this, R.array.themeSpinner, android.R.layout.simple_spinner_item);
+        themeSpinner.setAdapter(themeAdapter);
+        themeSpinner.setOnItemSelectedListener(this);
 
         Button btnStartTimer = (Button) findViewById(R.id.btnStartTimer);
         btnStartTimer.setOnClickListener(new View.OnClickListener() {
@@ -58,6 +95,18 @@ public class Timer_Setup extends Activity{
 
             }
         });
+
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
+    {
+        TextView themeSelected = (TextView) view;
+        Toast.makeText(this,"Type Selected " + themeSelected.getText(),Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
 
     }
 }

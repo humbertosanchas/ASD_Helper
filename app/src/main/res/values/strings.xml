@@ -17,4 +17,11 @@
     <string name="radYesText">Yes</string>
     <string name="radNoText">No</string>
     <string name="btnStartText">Start</string>
+
+    <string-array name="themeSpinner">
+        <item>Fairy</item>
+        <item>Pirate Ship</item>
+        <item>Space Ship</item>
+        <item>Unicorn</item>
+    </string-array>
 </resources>
