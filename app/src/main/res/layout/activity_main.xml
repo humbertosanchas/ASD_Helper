@@ -10,21 +10,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/btnTimer"
-        android:layout_marginTop="45dp"
         android:longClickable="true"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
         android:contentDescription="@string/btnTimerText"
-        android:src="@drawable/timer" />
+        android:src="@drawable/timers"
+        android:layout_above="@+id/btnIncident"
+        android:layout_alignLeft="@+id/btnIncident"
+        android:layout_alignStart="@+id/btnIncident" />
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/btnIncident"
-        android:src="@drawable/incident"
-        android:layout_below="@+id/btnTimer"
-        android:layout_centerHorizontal="true"
-        android:contentDescription="@string/btnIncidentText" />
+        android:src="@drawable/incidents"
+        android:contentDescription="@string/btnIncidentText"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/btnHistory"
+        android:layout_alignStart="@+id/btnHistory" />
 
     <ImageButton
         android:layout_width="wrap_content"
