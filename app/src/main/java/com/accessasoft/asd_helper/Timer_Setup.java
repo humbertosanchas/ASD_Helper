@@ -52,7 +52,7 @@ public class Timer_Setup extends Activity implements AdapterView.OnItemSelectedL
 
       RadioGroup radSound = (RadioGroup) findViewById(R.id.radGroupSound);
       final RadioButton radSoundOn = (RadioButton)findViewById(R.id.radOn);
-      final RadioButton radSoundOff = (RadioButton)findViewById(R.id.radOff);
+ //     final RadioButton radSoundOff = (RadioButton)findViewById(R.id.radOff);
       radSoundOn.setChecked(true);
       RadioButton radSoundValue = (RadioButton) findViewById(radSound.getCheckedRadioButtonId());
       soundValue = radSoundValue.getText().toString();
@@ -66,7 +66,7 @@ public class Timer_Setup extends Activity implements AdapterView.OnItemSelectedL
       });
 
         RadioGroup radAllowSleep = (RadioGroup) findViewById(R.id.radGroupSleep);
-        final RadioButton radAllowSleepYes = (RadioButton) findViewById(R.id.radYes);
+ //       final RadioButton radAllowSleepYes = (RadioButton) findViewById(R.id.radYes);
         final RadioButton radAllowSleepNo = (RadioButton) findViewById(R.id.radNo);
         radAllowSleepNo.setChecked(true);
         RadioButton radSleepValue = (RadioButton) findViewById(radAllowSleep.getCheckedRadioButtonId());
