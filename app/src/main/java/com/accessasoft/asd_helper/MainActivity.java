@@ -23,9 +23,29 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Intent timerSetupPage = new Intent(v.getContext(), Timer_Setup.class);
-                startActivityForResult(timerSetupPage,0);
+                startActivityForResult(timerSetupPage, 0);
             }
         });
+
+        ImageButton btnIncident = (ImageButton) findViewById(R.id.btnIncident);
+        btnIncident.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent incidentTrackingPage = new Intent(v.getContext(), IncidentTracker.class);
+                startActivityForResult(incidentTrackingPage,0);
+            }
+        });
+
+        ImageButton btnHistory = (ImageButton) findViewById(R.id.btnHistory);
+        btnHistory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent historyPage = new Intent(v.getContext(), History.class);
+                startActivityForResult(historyPage,0);
+            }
+        });
+
+
 
     }
 

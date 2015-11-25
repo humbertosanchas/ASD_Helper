@@ -17,6 +17,19 @@
     <string name="radYesText">Yes</string>
     <string name="radNoText">No</string>
     <string name="btnStartText">Start</string>
+    <string name="lblIncidentTrackerText">Incident Tracker</string>
+    <string name="btnIncidentStart">Start</string>
+    <string name="btnIncidentStop">Stop</string>
+    <string name="btnSaveText">Save Incident</string>
+    <string name="btnViewHistoryText">View History</string>
+    <string name="lblIncidentText">Incident</string>
+    <string name="chkIncidentText">New</string>
+    <string name="lblPrecidentText">Precident</string>
+    <string name="chkPrecidentText">New</string>
+    <string name="lblResolutionText">Resolution</string>
+    <string name="chkResolutionText">New</string>
+    <string name="lblMoodAfterText">Mood After</string>
+    <string name="chkMoodAfterText">New</string>
 
     <string-array name="themeSpinner">
         <item>Fairy</item>

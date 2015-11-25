@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/lblIncidentTrackerText"
+        android:id="@+id/txtIncidentTrackerHeading"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:textSize="@dimen/headingTextSize"
+        android:textStyle="bold" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btnIncidentStart"
+        android:id="@+id/btnStart"
+        android:layout_below="@+id/txtIncidentTrackerHeading"
+        android:layout_centerHorizontal="true"
+        android:minHeight="75dp"
+        android:minWidth="200dp"
+        android:background="#00ff00"
+        android:layout_marginTop="10dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnStop"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/btnStart"
+        android:layout_alignStart="@+id/btnStart"
+        android:background="#ff0000"
+        android:minWidth="200dp"
+        android:minHeight="75dp"
+        android:text="@string/btnIncidentStop"
+        android:layout_marginBottom="5dp" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnStart"
+        android:id="@+id/layoutIncident"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:id="@+id/lblIncident"
+            android:layout_marginRight="5dp"
+            android:text="@string/lblIncidentText" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/chkIncident"
+            android:clickable="true"
+            android:layout_marginLeft="25dp"
+            android:text="@string/chkIncidentText" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtIncident"
+            android:minWidth="150dp"
+            android:layout_marginLeft="5dp"
+            android:inputType="text" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/layoutPrecident"
+        android:layout_below="@+id/layoutIncident"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:id="@+id/lblPrecident"
+            android:clickable="false"
+            android:text="@string/lblPrecidentText" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/chkPrecident"
+            android:checked="false"
+            android:clickable="true"
+            android:layout_marginLeft="20dp"
+            android:text="@string/chkPrecidentText" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtPrecident"
+            android:layout_marginTop="0dp"
+            android:minWidth="150dp"
+            android:layout_marginLeft="5dp"
+            android:inputType="text" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/layoutResolution"
+        android:layout_below="@+id/layoutPrecident"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:id="@+id/lblResolution"
+            android:text="@string/lblResolutionText" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/chkResolution"
+            android:layout_marginLeft="10dp"
+            android:text="@string/chkResolutionText" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtResolution"
+            android:minWidth="150dp"
+            android:layout_marginLeft="5dp"
+            android:inputType="text" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/layoutMoodAfter"
+        android:layout_below="@+id/layoutResolution"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:id="@+id/lblMoodAfter"
+            android:text="@string/lblMoodAfterText" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/chkMoodAfter"
+            android:layout_marginLeft="5dp"
+            android:text="@string/chkMoodAfterText" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtMoodAfter"
+            android:minWidth="150dp"
+            android:layout_marginLeft="5dp"
+            android:inputType="text" />
+    </LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnSave"
+        android:minHeight="75dp"
+        android:minWidth="125dp"
+        android:layout_above="@+id/btnStop"
+        android:layout_alignLeft="@+id/txtIncidentTrackerHeading"
+        android:layout_alignStart="@+id/txtIncidentTrackerHeading"
+        android:layout_marginRight="10dp"
+        android:text="@string/btnSaveText" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnViewHistory"
+        android:minHeight="75dp"
+        android:minWidth="125dp"
+        android:layout_alignTop="@+id/btnSave"
+        android:layout_toRightOf="@+id/btnSave"
+        android:layout_toEndOf="@+id/btnSave"
+        android:text="@string/btnViewHistoryText" />
+
+</RelativeLayout>
