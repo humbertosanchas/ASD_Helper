@@ -185,7 +185,8 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:minWidth="200dp"
-        android:minHeight="75dp" />
+        android:minHeight="75dp"
+        android:layout_marginBottom="5dp" />
 
     <Spinner
         android:layout_width="wrap_content"

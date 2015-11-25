@@ -40,134 +40,138 @@
         android:layout_marginBottom="5dp" />
 
     <LinearLayout
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_below="@+id/btnStart"
-        android:id="@+id/layoutIncident"
-        android:layout_marginTop="10dp">
+        android:layout_above="@+id/btnSave">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:id="@+id/lblIncident"
-            android:layout_marginRight="5dp"
-            android:text="@string/lblIncidentText" />
+            android:id="@+id/layoutIncident"
+            android:layout_marginTop="10dp">
 
-        <CheckBox
-            android:layout_width="wrap_content"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:id="@+id/lblIncident"
+                android:layout_marginRight="5dp"
+                android:text="@string/lblIncidentText" />
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/chkIncident"
+                android:clickable="true"
+                android:layout_marginLeft="25dp"
+                android:text="@string/chkIncidentText" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtIncident"
+                android:minWidth="150dp"
+                android:layout_marginLeft="5dp"
+                android:inputType="text" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/chkIncident"
-            android:clickable="true"
-            android:layout_marginLeft="25dp"
-            android:text="@string/chkIncidentText" />
+            android:id="@+id/layoutPrecident"
+            android:layout_marginTop="10dp">
 
-        <EditText
-            android:layout_width="wrap_content"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:id="@+id/lblPrecident"
+                android:clickable="false"
+                android:text="@string/lblPrecidentText" />
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/chkPrecident"
+                android:checked="false"
+                android:clickable="true"
+                android:layout_marginLeft="20dp"
+                android:text="@string/chkPrecidentText" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtPrecident"
+                android:layout_marginTop="0dp"
+                android:minWidth="150dp"
+                android:layout_marginLeft="5dp"
+                android:inputType="text" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/txtIncident"
-            android:minWidth="150dp"
-            android:layout_marginLeft="5dp"
-            android:inputType="text" />
+            android:id="@+id/layoutResolution"
+            android:layout_marginTop="10dp">
 
-    </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:id="@+id/lblResolution"
+                android:text="@string/lblResolutionText" />
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/layoutPrecident"
-        android:layout_below="@+id/layoutIncident"
-        android:layout_marginTop="10dp">
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/chkResolution"
+                android:layout_marginLeft="10dp"
+                android:text="@string/chkResolutionText" />
 
-        <TextView
-            android:layout_width="wrap_content"
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtResolution"
+                android:minWidth="150dp"
+                android:layout_marginLeft="5dp"
+                android:inputType="text" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:id="@+id/lblPrecident"
-            android:clickable="false"
-            android:text="@string/lblPrecidentText" />
+            android:id="@+id/layoutMoodAfter"
+            android:layout_marginTop="10dp">
 
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/chkPrecident"
-            android:checked="false"
-            android:clickable="true"
-            android:layout_marginLeft="20dp"
-            android:text="@string/chkPrecidentText" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:id="@+id/lblMoodAfter"
+                android:text="@string/lblMoodAfterText" />
 
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/txtPrecident"
-            android:layout_marginTop="0dp"
-            android:minWidth="150dp"
-            android:layout_marginLeft="5dp"
-            android:inputType="text" />
-    </LinearLayout>
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/chkMoodAfter"
+                android:layout_marginLeft="5dp"
+                android:text="@string/chkMoodAfterText" />
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/layoutResolution"
-        android:layout_below="@+id/layoutPrecident"
-        android:layout_marginTop="10dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:id="@+id/lblResolution"
-            android:text="@string/lblResolutionText" />
-
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/chkResolution"
-            android:layout_marginLeft="10dp"
-            android:text="@string/chkResolutionText" />
-
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/txtResolution"
-            android:minWidth="150dp"
-            android:layout_marginLeft="5dp"
-            android:inputType="text" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/layoutMoodAfter"
-        android:layout_below="@+id/layoutResolution"
-        android:layout_marginTop="10dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:id="@+id/lblMoodAfter"
-            android:text="@string/lblMoodAfterText" />
-
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/chkMoodAfter"
-            android:layout_marginLeft="5dp"
-            android:text="@string/chkMoodAfterText" />
-
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/txtMoodAfter"
-            android:minWidth="150dp"
-            android:layout_marginLeft="5dp"
-            android:inputType="text" />
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtMoodAfter"
+                android:minWidth="150dp"
+                android:layout_marginLeft="5dp"
+                android:inputType="text" />
+        </LinearLayout>
     </LinearLayout>
 
     <Button
