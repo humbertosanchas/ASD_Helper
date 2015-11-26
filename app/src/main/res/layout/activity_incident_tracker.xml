@@ -179,22 +179,11 @@
         android:layout_height="wrap_content"
         android:id="@+id/btnSave"
         android:minHeight="75dp"
-        android:minWidth="125dp"
+        android:minWidth="200dp"
         android:layout_above="@+id/btnStop"
-        android:layout_alignLeft="@+id/txtIncidentTrackerHeading"
+        android:layout_alignLeft="@+id/btnStop"
         android:layout_alignStart="@+id/txtIncidentTrackerHeading"
         android:layout_marginRight="10dp"
         android:text="@string/btnSaveText" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/btnViewHistory"
-        android:minHeight="75dp"
-        android:minWidth="125dp"
-        android:layout_alignTop="@+id/btnSave"
-        android:layout_toRightOf="@+id/btnSave"
-        android:layout_toEndOf="@+id/btnSave"
-        android:text="@string/btnViewHistoryText" />
 
 </RelativeLayout>

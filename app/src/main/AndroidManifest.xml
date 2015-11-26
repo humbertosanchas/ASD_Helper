@@ -9,18 +9,19 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Timer_Setup" />
-        <activity android:name=".Charts" />
+        <activity android:name=".Timer_Setup" android:screenOrientation="portrait" />
+        <activity android:name=".Charts"  />
         <activity android:name=".Graphs" />
-        <activity android:name=".History" />
-        <activity android:name=".IncidentTracker" />
-        <activity android:name=".Tables" />
+        <activity android:name=".History" android:screenOrientation="portrait" />
+        <activity android:name=".IncidentTracker" android:screenOrientation="portrait" />
+        <activity android:name=".Tables" android:screenOrientation="portrait" />
+        <activity android:name=".Timer" android:screenOrientation="landscape" />
     </application>
 
 </manifest>

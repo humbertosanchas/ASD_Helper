@@ -1,6 +1,7 @@
 package com.accessasoft.asd_helper;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.database.DataSetObserver;
 import android.os.Bundle;
 import android.view.View;
@@ -88,10 +89,11 @@ public class Timer_Setup extends Activity implements AdapterView.OnItemSelectedL
         Button btnStartTimer = (Button) findViewById(R.id.btnStartTimer);
         btnStartTimer.setOnClickListener(new View.OnClickListener() {
 
+
             @Override
             public void onClick(View v) {
-                //setContentView(R.layout.activity_timer_setup);
-                Toast.makeText(getApplicationContext(),"Timer Start Clicked", Toast.LENGTH_LONG).show();
+                Intent timerPage = new Intent(v.getContext(), Timer.class);
+                startActivityForResult(timerPage, 0);
 
             }
         });

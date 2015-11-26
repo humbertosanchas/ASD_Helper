@@ -6,8 +6,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="THIS WILL BE A CHART OF INCIDENT HISTORY"
-        android:id="@+id/textView2"
-        android:layout_gravity="center"
-        android:gravity="center" />
+        android:text="This will be one of the 4 visual timer listed on the Timer Setup screen displaying with a timer counting down for the time specified on the Timer SetUp page"
+        android:id="@+id/textView3"
+        android:layout_gravity="center" />
 </LinearLayout>
