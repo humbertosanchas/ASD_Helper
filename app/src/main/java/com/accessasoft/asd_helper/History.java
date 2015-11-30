@@ -25,14 +25,13 @@ public class History extends TabActivity
         tabHost.addTab(tabSpec1);
 
         TabHost.TabSpec tabSpec2 = tabHost.newTabSpec("page2");
-        tabSpec2.setIndicator("Graphs");
-        tabSpec2.setContent(new Intent(this, Graphs.class));
+        tabSpec2.setIndicator("Charts");
+        tabSpec2.setContent(new Intent(this, Charts.class));
         tabHost.addTab(tabSpec2);
 
         TabHost.TabSpec tabSpec3 = tabHost.newTabSpec("page3");
-        tabSpec3.setIndicator("Charts");
-        tabSpec3.setContent(new Intent(this, Charts.class));
+        tabSpec3.setIndicator("Locations");
+        tabSpec3.setContent(new Intent(this, Maps.class));
         tabHost.addTab(tabSpec3);
-
     }
 }

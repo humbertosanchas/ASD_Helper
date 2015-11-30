@@ -7,8 +7,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="THIS WILL BE A GRAPH INCIDENT HISTORY"
+        android:text="THIS WILL BE A Google MAP OF LOCATIONS OF INCIDENTS"
         android:id="@+id/textView"
         android:layout_gravity="center"
-        android:gravity="center" />
+        android:gravity="center"
+        android:phoneNumber="false" />
 </LinearLayout>

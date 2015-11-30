@@ -6,10 +6,10 @@ import android.os.Bundle;
 /**
  * Created by Paul Boyko on 11/25/2015.
  */
-public class Graphs extends Activity {
+public class Maps extends Activity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_graphs);
+        setContentView(R.layout.activity_maps);
     }
 }
