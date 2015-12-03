@@ -100,10 +100,10 @@ public class IncidentTracker extends Activity implements LocationListener, Seria
             }
         });
 
-        CheckBox chkIncident = (CheckBox) findViewById(R.id.chkIncident);
-        CheckBox chkPrecident = (CheckBox) findViewById(R.id.chkPrecident);
-        CheckBox chkResolution = (CheckBox) findViewById(R.id.chkResolution);
-        CheckBox chkMoodAfter = (CheckBox) findViewById(R.id.chkMoodAfter);
+//        CheckBox chkIncident = (CheckBox) findViewById(R.id.chkIncident);
+//        CheckBox chkPrecident = (CheckBox) findViewById(R.id.chkPrecident);
+//        CheckBox chkResolution = (CheckBox) findViewById(R.id.chkResolution);
+//        CheckBox chkMoodAfter = (CheckBox) findViewById(R.id.chkMoodAfter);
 
         Button btnSaveIncident = (Button) findViewById(R.id.btnSave);
         btnSaveIncident.setOnClickListener(new View.OnClickListener() {
