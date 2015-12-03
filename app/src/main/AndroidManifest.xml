@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.accessasoft.asd_helper" >
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -17,12 +16,14 @@
         </activity>
         <activity android:name=".Timer_Setup" android:screenOrientation="portrait" />
         <activity android:name=".Charts"  />
-        <activity android:name=".Graphs" />
+        <activity android:name=".Maps" />
         <activity android:name=".History" android:screenOrientation="portrait" />
         <activity android:name=".IncidentTracker" android:screenOrientation="portrait" />
         <activity android:name=".Tables" android:screenOrientation="portrait" />
         <activity android:name=".Timer" android:screenOrientation="landscape" />
         <activity android:name=".MainActivity" android:screenOrientation="portrait" />
     </application>
-
+    <user-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <user-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <users-permission android:name="android.permission.INTERNET" />
 </manifest>
