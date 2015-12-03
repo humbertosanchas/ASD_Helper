@@ -2,11 +2,14 @@ package com.accessasoft.asd_helper;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
 import java.sql.Time;
 import java.util.Calendar;
 
@@ -16,6 +19,7 @@ import java.util.Calendar;
 public class Tables extends Activity{
 
     ListView listView;
+    IncidentForTable nIncident;
     public int c;
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,43 +30,26 @@ public class Tables extends Activity{
 
         listView = (ListView) findViewById(R.id.lstHistory);
 
+        try
+        {
+            FileInputStream file = Tables.this.openFileInput("incidentRecord");
+            ObjectInputStream in = new ObjectInputStream(file);
+            Object obj = in.readObject();
+            while(obj != null)
+            {
+                IncidentToSave data = (IncidentToSave) obj;
+                nIncident = new IncidentForTable(data.incidentRecord,data.startTime,data.precedentRecord,data.resolutionRecord,data.endTime,data.moodAfterRecord,(double)data.startTime.getTime()-data.endTime.getTime());
+                obj = in.readObject();
+            }
+            in.close();
+            file.close();
+        }
+        catch (Exception ex)
+        {}
+
         IncidentForTable[] incidents = new IncidentForTable[]
                 {
-                        new IncidentForTable("Kicking", Calendar.getInstance().getTime(), "Turn off TV", "Read a Book",Calendar.getInstance().getTime(), "Kinda sad",2.5),
-                        new IncidentForTable("Screaming", Calendar.getInstance().getTime(), "Turn off TV", "Go out to Park",Calendar.getInstance().getTime(), "Happy",1.5),
-                        new IncidentForTable("Crying", Calendar.getInstance().getTime(), "Bed Time", "Stand your ground",Calendar.getInstance().getTime(), "Grumpy",5.0),
-                        new IncidentForTable("Kicking", Calendar.getInstance().getTime(), "Turn off TV", "Read a Book",Calendar.getInstance().getTime(), "Distant",4.5),
-                        new IncidentForTable("Throwing Things", Calendar.getInstance().getTime(), "Didn't Like Diner", "Only had to eat a small amount",Calendar.getInstance().getTime(), "Grumpy",15.0),
-                        new IncidentForTable("Kicking", Calendar.getInstance().getTime(), "Turn off TV", "Read a Book",Calendar.getInstance().getTime(), "Kinda sad",2.5),
-                        new IncidentForTable("Screaming", Calendar.getInstance().getTime(), "Turn off TV", "Go out to Park",Calendar.getInstance().getTime(), "Happy",1.5),
-                        new IncidentForTable("Crying", Calendar.getInstance().getTime(), "Bed Time", "Stand your ground",Calendar.getInstance().getTime(), "Grumpy",5.0),
-                        new IncidentForTable("Kicking", Calendar.getInstance().getTime(), "Turn off TV", "Read a Book",Calendar.getInstance().getTime(), "Distant",4.5),
-                        new IncidentForTable("Throwing Things", Calendar.getInstance().getTime(), "Didn't Like Diner", "Only had to eat a small amount",Calendar.getInstance().getTime(), "Grumpy",15.0),
-                        new IncidentForTable("Kicking", Calendar.getInstance().getTime(), "Turn off TV", "Read a Book",Calendar.getInstance().getTime(), "Kinda sad",2.5),
-                        new IncidentForTable("Screaming", Calendar.getInstance().getTime(), "Turn off TV", "Go out to Park",Calendar.getInstance().getTime(), "Happy",1.5),
-                        new IncidentForTable("Crying", Calendar.getInstance().getTime(), "Bed Time", "Stand your ground",Calendar.getInstance().getTime(), "Grumpy",5.0),
-                        new IncidentForTable("Kicking", Calendar.getInstance().getTime(), "Turn off TV", "Read a Book",Calendar.getInstance().getTime(), "Distant",4.5),
-                        new IncidentForTable("Throwing Things", Calendar.getInstance().getTime(), "Didn't Like Diner", "Only had to eat a small amount",Calendar.getInstance().getTime(), "Grumpy",15.0),
-                        new IncidentForTable("Kicking", Calendar.getInstance().getTime(), "Turn off TV", "Read a Book",Calendar.getInstance().getTime(), "Kinda sad",2.5),
-                        new IncidentForTable("Screaming", Calendar.getInstance().getTime(), "Turn off TV", "Go out to Park",Calendar.getInstance().getTime(), "Happy",1.5),
-                        new IncidentForTable("Crying", Calendar.getInstance().getTime(), "Bed Time", "Stand your ground",Calendar.getInstance().getTime(), "Grumpy",5.0),
-                        new IncidentForTable("Kicking", Calendar.getInstance().getTime(), "Turn off TV", "Read a Book",Calendar.getInstance().getTime(), "Distant",4.5),
-                        new IncidentForTable("Throwing Things", Calendar.getInstance().getTime(), "Didn't Like Diner", "Only had to eat a small amount",Calendar.getInstance().getTime(), "Grumpy",15.0),
-                        new IncidentForTable("Kicking", Calendar.getInstance().getTime(), "Turn off TV", "Read a Book",Calendar.getInstance().getTime(), "Kinda sad",2.5),
-                        new IncidentForTable("Screaming", Calendar.getInstance().getTime(), "Turn off TV", "Go out to Park",Calendar.getInstance().getTime(), "Happy",1.5),
-                        new IncidentForTable("Crying", Calendar.getInstance().getTime(), "Bed Time", "Stand your ground",Calendar.getInstance().getTime(), "Grumpy",5.0),
-                        new IncidentForTable("Kicking", Calendar.getInstance().getTime(), "Turn off TV", "Read a Book",Calendar.getInstance().getTime(), "Distant",4.5),
-                        new IncidentForTable("Throwing Things", Calendar.getInstance().getTime(), "Didn't Like Diner", "Only had to eat a small amount",Calendar.getInstance().getTime(), "Grumpy",15.0),
-                        new IncidentForTable("Kicking", Calendar.getInstance().getTime(), "Turn off TV", "Read a Book",Calendar.getInstance().getTime(), "Kinda sad",2.5),
-                        new IncidentForTable("Screaming", Calendar.getInstance().getTime(), "Turn off TV", "Go out to Park",Calendar.getInstance().getTime(), "Happy",1.5),
-                        new IncidentForTable("Crying", Calendar.getInstance().getTime(), "Bed Time", "Stand your ground",Calendar.getInstance().getTime(), "Grumpy",5.0),
-                        new IncidentForTable("Kicking", Calendar.getInstance().getTime(), "Turn off TV", "Read a Book",Calendar.getInstance().getTime(), "Distant",4.5),
-                        new IncidentForTable("Throwing Things", Calendar.getInstance().getTime(), "Didn't Like Diner", "Only had to eat a small amount",Calendar.getInstance().getTime(), "Grumpy",15.0),
-                        new IncidentForTable("Kicking", Calendar.getInstance().getTime(), "Turn off TV", "Read a Book",Calendar.getInstance().getTime(), "Kinda sad",2.5),
-                        new IncidentForTable("Screaming", Calendar.getInstance().getTime(), "Turn off TV", "Go out to Park",Calendar.getInstance().getTime(), "Happy",1.5),
-                        new IncidentForTable("Crying", Calendar.getInstance().getTime(), "Bed Time", "Stand your ground",Calendar.getInstance().getTime(), "Grumpy",5.0),
-                        new IncidentForTable("Kicking", Calendar.getInstance().getTime(), "Turn off TV", "Read a Book",Calendar.getInstance().getTime(), "Distant",4.5),
-                        new IncidentForTable("Throwing Things", Calendar.getInstance().getTime(), "Didn't Like Diner", "Only had to eat a small amount",Calendar.getInstance().getTime(), "Grumpy",15.0)
+                        nIncident
                 };
         String[] incidentString = new String[incidents.length];
 
