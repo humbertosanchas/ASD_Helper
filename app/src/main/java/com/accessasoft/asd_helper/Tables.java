@@ -26,8 +26,6 @@ public class Tables extends Activity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tables);
 
-
-
         listView = (ListView) findViewById(R.id.lstHistory);
 
         try
@@ -69,6 +67,5 @@ public class Tables extends Activity{
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,android.R.id.text1, incidentString);
         listView.setAdapter(adapter);
-
     }
 }
