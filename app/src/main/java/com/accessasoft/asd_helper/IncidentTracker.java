@@ -32,14 +32,13 @@ import java.util.Date;
 /**
  * Created by Paul Boyko on 11/25/2015.
  */
-public class IncidentTracker extends Activity implements LocationListener, Serializable {
+public class IncidentTracker extends Activity implements Serializable {
 
     Date startTime;
     Date endTime = null;
     LocationManager locManager = null;
-    Location eventLocation = null;
-    Location startLocation = null;
-    Location endLocation = null;
+    public double longitude;
+    public double latitude;
     String incidentRecord;
     String precedentRecord;
     String resolutionRecord;
@@ -62,6 +61,7 @@ public class IncidentTracker extends Activity implements LocationListener, Seria
         setContentView(R.layout.activity_incident_tracker);
 
         locManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
+        final LocationListener nLocListener = new NewLocationListener();
 
         Criteria criteria = new Criteria();
         criteria.setAccuracy(Criteria.ACCURACY_FINE);
@@ -71,20 +71,16 @@ public class IncidentTracker extends Activity implements LocationListener, Seria
         Button btnStartIncident = (Button) findViewById(R.id.btnStart);
         btnStartIncident.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
 
                 startTime = new Date();
-//                try
-//                {
-//                    locManager.requestLocationUpdates(best, 100001, 0f, IncidentTracker.this);
+                try {
+                    locManager.requestLocationUpdates(best, 0, 0f, nLocListener);
 //
-                 Toast.makeText(getApplicationContext(),"Start Clicked" + startTime.toString() , Toast.LENGTH_LONG).show();
-//                }
-//                catch (SecurityException se)
-//                {
-//                    se.printStackTrace();
-//                }
+                    Toast.makeText(getApplicationContext(), "Start Clicked" + startTime.toString(), Toast.LENGTH_LONG).show();
+                } catch (SecurityException se) {
+                    se.printStackTrace();
+                }
             }
 
         });
@@ -92,9 +88,7 @@ public class IncidentTracker extends Activity implements LocationListener, Seria
         Button btnStopIncident = (Button) findViewById(R.id.btnStop);
         btnStopIncident.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
-//                endLocation = eventLocation;
+            public void onClick(View v) {
                 endTime = new Date();
                 Toast.makeText(getApplicationContext(), "Stop Clicked " + endTime.toString(), Toast.LENGTH_LONG).show();
             }
@@ -114,96 +108,74 @@ public class IncidentTracker extends Activity implements LocationListener, Seria
                 EditText txtResolution = (EditText) findViewById(R.id.txtResolution);
                 EditText txtMoodAfter = (EditText) findViewById(R.id.txtMoodAfter);
 
-                if (endTime != null)
-                {
-                    if (txtIncident.getText().toString().length() > 0)
-                    {
+                if (endTime != null) {
+                    if (txtIncident.getText().toString().length() > 0) {
                         incidentRecord = txtIncident.getText().toString();
-                        if (txtPrecedent.getText().toString().length() > 0)
-                        {
+                        if (txtPrecedent.getText().toString().length() > 0) {
                             precedentRecord = txtPrecedent.getText().toString();
-                            if (txtResolution.getText().toString().length() > 0)
-                            {
+                            if (txtResolution.getText().toString().length() > 0) {
                                 resolutionRecord = txtResolution.getText().toString();
-                                if (txtMoodAfter.getText().toString().length() > 0)
-                                {
+                                if (txtMoodAfter.getText().toString().length() > 0) {
                                     moodAfterRecord = txtMoodAfter.getText().toString();
                                     FileOutputStream fos;
                                     ObjectOutputStream os;
                                     try {
                                         fos = IncidentTracker.this.openFileOutput("incidentRecord", Context.MODE_PRIVATE);
                                         os = new ObjectOutputStream(fos);
-                                        os.writeObject(new IncidentToSave(startTime,endTime,incidentRecord, precedentRecord, resolutionRecord,moodAfterRecord));
+                                        os.writeObject(new IncidentToSave(startTime, endTime, incidentRecord, precedentRecord, resolutionRecord, moodAfterRecord, latitude,longitude));
                                         os.close();
                                         fos.close();
                                         Toast.makeText(getApplicationContext(), "Record Saved", Toast.LENGTH_LONG).show();
 
-                                    }
-                                    catch (FileNotFoundException e)
-                                    {
+                                    } catch (FileNotFoundException e) {
+                                        e.printStackTrace();
+                                    } catch (IOException e) {
                                         e.printStackTrace();
                                     }
-                                    catch (IOException e)
-                                    {
-                                        e.printStackTrace();
-                                    }
-                                }
-                                else
-                                {
+                                } else {
                                     Toast.makeText(getApplicationContext(), "Incident can not be left blank", Toast.LENGTH_LONG).show();
                                     txtMoodAfter.requestFocus();
                                 }
-                            }
-                            else
-                            {
+                            } else {
                                 Toast.makeText(getApplicationContext(), "Resolution can not be left blank", Toast.LENGTH_LONG).show();
                                 txtResolution.requestFocus();
                             }
-                        }
-                        else
-                        {
+                        } else {
                             Toast.makeText(getApplicationContext(), "Precient can not be left blank", Toast.LENGTH_LONG).show();
                             txtPrecedent.requestFocus();
                         }
+                    } else {
+                        Toast.makeText(getApplicationContext(), "Incident can not be left blank", Toast.LENGTH_LONG).show();
+                        txtIncident.requestFocus();
                     }
-                    else
-                    {
-                            Toast.makeText(getApplicationContext(), "Incident can not be left blank", Toast.LENGTH_LONG).show();
-                            txtIncident.requestFocus();
-                    }
-                }
-                else
-                {
+                } else {
                     Toast.makeText(getApplicationContext(), "Event must be stopped before it can be saved", Toast.LENGTH_LONG).show();
                 }
             }
         });
     }
 
-    @Override
-    public void onLocationChanged(Location location)
-    {
-        if (location != null)
-        {
-            this.eventLocation = location;
+    public class NewLocationListener implements LocationListener {
+
+        public void onLocationChanged(Location loc) {
+            longitude = loc.getLongitude();
+            latitude = loc.getLatitude();
+            try
+            {
+                locManager.removeUpdates(this);
+            }
+            catch (SecurityException e)
+            {
+            }
+        }
+        public void onProviderDisabled(String arg0) {
+
+        }
+        public void onProviderEnabled(String provider) {
+
+        }
+        public void onStatusChanged(String provider, int status, Bundle extras) {
+
         }
     }
-
-    @Override
-    public void onStatusChanged(String provider, int status, Bundle extras) {
-        Log.e("GPS", "status changed to " + provider + " [" + status + "]");
-    }
-
-    @Override
-    public void onProviderEnabled(String provider) {
-        Log.e("GPS", "provider enabled " + provider);
-    }
-
-    @Override
-    public void onProviderDisabled(String provider) {
-        Log.e("GPS", "provider disabled " + provider);
-    }
-
-
-
 }

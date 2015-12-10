@@ -36,7 +36,7 @@ public class Tables extends Activity{
             while(obj != null)
             {
                 IncidentToSave data = (IncidentToSave) obj;
-                nIncident = new IncidentForTable(data.incidentRecord,data.startTime,data.precedentRecord,data.resolutionRecord,data.endTime,data.moodAfterRecord,(double)data.startTime.getTime()-data.endTime.getTime());
+                nIncident = new IncidentForTable(data.incidentRecord,data.startTime,data.precedentRecord,data.resolutionRecord,data.endTime,data.moodAfterRecord,(Math.floor ( ( ( (data.endTime.getTime()-data.startTime.getTime()) /1000) /60.0) * 100) / 100) );
                 obj = in.readObject();
             }
             in.close();

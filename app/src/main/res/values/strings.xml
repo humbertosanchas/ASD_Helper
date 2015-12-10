@@ -37,4 +37,5 @@
         <item>Space Ship</item>
         <item>Unicorn</item>
     </string-array>
+    <string name="title_activity_activity_maps">Map</string>
 </resources>

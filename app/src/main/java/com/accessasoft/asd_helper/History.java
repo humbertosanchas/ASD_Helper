@@ -31,7 +31,7 @@ public class History extends TabActivity
 
         TabHost.TabSpec tabSpec3 = tabHost.newTabSpec("page3");
         tabSpec3.setIndicator("Locations");
-        tabSpec3.setContent(new Intent(this, Maps.class));
+        tabSpec3.setContent(new Intent(this, MapsActivity.class));
         tabHost.addTab(tabSpec3);
     }
 }

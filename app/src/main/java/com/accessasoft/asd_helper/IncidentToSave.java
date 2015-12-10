@@ -20,8 +20,10 @@ public class IncidentToSave implements Serializable
     String precedentRecord;
     String resolutionRecord;
     String moodAfterRecord;
+    double lat;
+    double longa;
 
-    public IncidentToSave(Date sDate, Date eDate, String inRecd, String preRecd, String resRecd, String mdAfRecd)
+    public IncidentToSave(Date sDate, Date eDate, String inRecd, String preRecd, String resRecd, String mdAfRecd, double lat, double longa)
     {
         this.startTime = sDate;
         this.endTime = eDate;
@@ -29,5 +31,7 @@ public class IncidentToSave implements Serializable
         this.precedentRecord = preRecd;
         this.resolutionRecord = resRecd;
         this.moodAfterRecord = mdAfRecd;
+        this.lat = lat;
+        this.longa = longa;
     }
 }
