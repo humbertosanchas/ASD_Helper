@@ -10,13 +10,20 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
+import java.util.ArrayList;
+
 
 public class MainActivity extends Activity {
+
+    public static ArrayList<IncidentToSave> _saves;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         ImageButton btnTimerSetup = (ImageButton) findViewById(R.id.btnTimer);
         btnTimerSetup.setOnClickListener(new View.OnClickListener() {
@@ -47,6 +54,23 @@ public class MainActivity extends Activity {
 
 
 
+    }
+
+    public void setSavesList()
+    {
+        try {
+            FileInputStream file = MainActivity.this.openFileInput("incidentRecord");
+            ObjectInputStream in = new ObjectInputStream(file);
+            Object obj = in.readObject();
+            while (obj != null) {
+                //IncidentToSave data = (IncidentToSave) obj;
+                _saves.add((IncidentToSave) obj);
+                obj = in.readObject();
+            }
+            in.close();
+            file.close();
+        } catch (Exception ex) {
+        }
     }
 
     @Override

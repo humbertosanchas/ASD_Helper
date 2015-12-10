@@ -27,6 +27,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -34,6 +35,7 @@ import java.util.Date;
  */
 public class IncidentTracker extends Activity implements Serializable {
 
+    ArrayList<IncidentToSave> saves = new ArrayList<IncidentToSave>();
     Date startTime;
     Date endTime = null;
     LocationManager locManager = null;
@@ -59,6 +61,11 @@ public class IncidentTracker extends Activity implements Serializable {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_incident_tracker);
+
+           if(MainActivity._saves != null)
+           {
+               saves = MainActivity._saves;
+           }
 
         locManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
         final LocationListener nLocListener = new NewLocationListener();
@@ -117,21 +124,22 @@ public class IncidentTracker extends Activity implements Serializable {
                                 resolutionRecord = txtResolution.getText().toString();
                                 if (txtMoodAfter.getText().toString().length() > 0) {
                                     moodAfterRecord = txtMoodAfter.getText().toString();
-                                    FileOutputStream fos;
-                                    ObjectOutputStream os;
-                                    try {
-                                        fos = IncidentTracker.this.openFileOutput("incidentRecord", Context.MODE_PRIVATE);
-                                        os = new ObjectOutputStream(fos);
-                                        os.writeObject(new IncidentToSave(startTime, endTime, incidentRecord, precedentRecord, resolutionRecord, moodAfterRecord, latitude,longitude));
-                                        os.close();
-                                        fos.close();
+//                                    FileOutputStream fos;
+//                                    ObjectOutputStream os;
+//                                    try {
+//                                        fos = IncidentTracker.this.openFileOutput("incidentRecord", Context.MODE_PRIVATE);
+//                                        os = new ObjectOutputStream(fos);
+//                                        os.writeObject(new IncidentToSave(startTime, endTime, incidentRecord, precedentRecord, resolutionRecord, moodAfterRecord, latitude,longitude));
+//                                        os.close();
+//                                        fos.close();
+                                        saves.add(new IncidentToSave(startTime, endTime, incidentRecord, precedentRecord, resolutionRecord, moodAfterRecord, latitude,longitude));
                                         Toast.makeText(getApplicationContext(), "Record Saved", Toast.LENGTH_LONG).show();
-
-                                    } catch (FileNotFoundException e) {
-                                        e.printStackTrace();
-                                    } catch (IOException e) {
-                                        e.printStackTrace();
-                                    }
+//
+//                                    } catch (FileNotFoundException e) {
+//                                        e.printStackTrace();
+//                                    } catch (IOException e) {
+//                                        e.printStackTrace();
+//                                    }
                                 } else {
                                     Toast.makeText(getApplicationContext(), "Incident can not be left blank", Toast.LENGTH_LONG).show();
                                     txtMoodAfter.requestFocus();
@@ -176,6 +184,26 @@ public class IncidentTracker extends Activity implements Serializable {
         }
         public void onStatusChanged(String provider, int status, Bundle extras) {
 
+        }
+    }
+
+    @Override
+    public void onPause()
+    {
+        super.onPause();
+        FileOutputStream fos;
+        ObjectOutputStream os;
+        try {
+            fos = IncidentTracker.this.openFileOutput("incidentRecord", Context.MODE_PRIVATE);
+            os = new ObjectOutputStream(fos);
+            os.writeObject(saves);
+            os.close();
+            fos.close();
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }

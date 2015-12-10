@@ -26,28 +26,34 @@ public class Tables extends Activity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tables);
 
+        MainActivity n = new MainActivity();
+        n.setSavesList();
+
         listView = (ListView) findViewById(R.id.lstHistory);
 
-        try
-        {
-            FileInputStream file = Tables.this.openFileInput("incidentRecord");
-            ObjectInputStream in = new ObjectInputStream(file);
-            Object obj = in.readObject();
-            while(obj != null)
-            {
-                IncidentToSave data = (IncidentToSave) obj;
-                nIncident = new IncidentForTable(data.incidentRecord,data.startTime,data.precedentRecord,data.resolutionRecord,data.endTime,data.moodAfterRecord,(Math.floor ( ( ( (data.endTime.getTime()-data.startTime.getTime()) /1000) /60.0) * 100) / 100) );
-                obj = in.readObject();
-            }
-            in.close();
-            file.close();
-        }
-        catch (Exception ex)
-        {}
+//        try
+//        {
+//            FileInputStream file = Tables.this.openFileInput("incidentRecord");
+//            ObjectInputStream in = new ObjectInputStream(file);
+//            Object obj = in.readObject();
+//            while(obj != null)
+//            {
+//                IncidentToSave data = (IncidentToSave) obj;
+//                nIncident = new IncidentForTable(data.incidentRecord,data.startTime,data.precedentRecord,data.resolutionRecord,data.endTime,data.moodAfterRecord,(Math.floor ( ( ( (data.endTime.getTime()-data.startTime.getTime()) /1000) /60.0) * 100) / 100) );
+//                obj = in.readObject();
+//            }
+//            in.close();
+//            file.close();
+//        }
+//        catch (Exception ex)
+//        {}
 
+
+
+     //   IncidentToSave[] incidentsForTable = (IncidentToSave[]) MainActivity._saves.toArray();
         IncidentForTable[] incidents = new IncidentForTable[]
                 {
-                        nIncident
+
                 };
         String[] incidentString = new String[incidents.length];
 
