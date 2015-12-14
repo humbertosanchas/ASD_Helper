@@ -51,9 +51,11 @@ public class MainActivity extends Activity {
                 startActivityForResult(historyPage,0);
             }
         });
+    }
 
-
-
+    public ArrayList<IncidentToSave>  getSavesList()
+    {
+        return _saves;
     }
 
     public void setSavesList()
@@ -63,8 +65,10 @@ public class MainActivity extends Activity {
             ObjectInputStream in = new ObjectInputStream(file);
             Object obj = in.readObject();
             while (obj != null) {
-                //IncidentToSave data = (IncidentToSave) obj;
-                _saves.add((IncidentToSave) obj);
+                ArrayList<IncidentToSave> data = (ArrayList<IncidentToSave>) obj;
+                for (IncidentToSave s : data) {
+                    _saves.add(s);
+                }
                 obj = in.readObject();
             }
             in.close();

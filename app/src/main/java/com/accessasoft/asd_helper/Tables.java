@@ -27,7 +27,7 @@ public class Tables extends Activity{
         setContentView(R.layout.activity_tables);
 
         MainActivity n = new MainActivity();
-        n.setSavesList();
+
 
         listView = (ListView) findViewById(R.id.lstHistory);
 
@@ -51,27 +51,24 @@ public class Tables extends Activity{
 
 
      //   IncidentToSave[] incidentsForTable = (IncidentToSave[]) MainActivity._saves.toArray();
-        IncidentForTable[] incidents = new IncidentForTable[]
-                {
-
-                };
-        String[] incidentString = new String[incidents.length];
-
-        c=0;
-        for(IncidentForTable incident : incidents)
+        if(n._saves != null)
         {
-            if(incident != null)
-            {
-                incidentString[c] = incident.getIncident() + ", " + incident.getStartTime().toString() + ", " + incident.getPrecident() + ", " + incident.getResolution() + ", " + incident.getEndTime().toString() + ", " + incident.getMoodAfter() + ", " + incident.getTotalTime().toString();
-                c++;
-            }
-            else
-            {
-                incidentString[0] = "Failed";
-            }
-        }
+            IncidentToSave[] incidents = (IncidentToSave[]) n.getSavesList().toArray();
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,android.R.id.text1, incidentString);
-        listView.setAdapter(adapter);
+            String[] incidentString = new String[incidents.length];
+
+            c = 0;
+            for (IncidentToSave incident : incidents) {
+                if (incident != null) {
+                    incidentString[c] = incident.incidentRecord + ", " + incident.startTime.toString() + ", " + incident.precedentRecord + ", " + incident.resolutionRecord + ", " + incident.endTime.toString() + ", " + incident.moodAfterRecord + ", " + (incident.endTime.getTime()-incident.startTime.getTime())/1000;
+                    c++;
+                } else {
+                    incidentString[0] = "Failed";
+                }
+            }
+
+            ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, incidentString);
+            listView.setAdapter(adapter);
+        }
     }
 }
